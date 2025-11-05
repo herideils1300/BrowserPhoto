@@ -1,0 +1,21 @@
+body{
+    margin: 0px;
+    padding: 0px;
+
+    --major-color: #cccccc;
+    --minor-color: #4488dd;
+    --dopamine-color: #dd1111;
+
+    --on-major: #222222;
+    --on-minor: white;
+}
+
+.list-element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--minor-color);
+    border-radius: 10px;
+    color: var(--on-major);
+}
