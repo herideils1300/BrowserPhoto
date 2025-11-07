@@ -2,12 +2,45 @@ body{
     margin: 0px;
     padding: 0px;
 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
     --major-color: #cccccc;
     --minor-color: #4488dd;
     --dopamine-color: #dd1111;
 
     --on-major: #222222;
     --on-minor: white;
+}
+
+label{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+button{
+    margin-top: 7px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    border: 0.3px var(--on-major) solid;
+    background-color: var(--major-color);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+input{
+    height: 30px;
+    width: auto;
+    border-radius: 10px;
+    border: 0.5px var(--on-major) solid;
+}
+
+.submit-button{
+    background-color: var(--minor-color);
+    color: var(--on-minor);
 }
 
 .list-element{
@@ -18,4 +51,27 @@ body{
     color: var(--minor-color);
     border-radius: 10px;
     color: var(--on-major);
+}
+
+.nav-bar-element{
+    width: 100px;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: var(--minor-color);
+    color: var(--on-minor);
+    transition-duration: 0.5s;
+}
+
+.nav-bar-element:hover{
+    background-color: var(--major-color);
+    color: var(--on-major);
+    cursor: pointer;
+}
+
+.options-div{
+    display: flex;
+    flex-direction: row-reverse;
 }

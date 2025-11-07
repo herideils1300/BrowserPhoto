@@ -1,0 +1,28 @@
+
+.submit-button{
+    float: right;
+}
+
+form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: auto;
+    max-width: 500px;
+    border: 3px var(--minor-color) solid;
+    border-radius: 10px;
+    padding: 100px;
+}
+
+#main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-image: url('../../../../assets/photos.png');
+    background-position: center;
+    background-size: cover;
+}
