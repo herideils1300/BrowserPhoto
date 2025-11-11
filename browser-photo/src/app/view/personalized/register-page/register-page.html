@@ -1,0 +1,23 @@
+<div id="main">
+    <div id="current-slide" #currentSlide>
+        <div id="login-div">
+            <form>
+                <h2>Register</h2>
+                <label for="email">Username</label>
+                <input type="email" name="email" id="email-input" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password-input" />
+                <label for="repeat-password">Repeat Password</label>
+                <input type="password" name="repeat-password" id="repeat-password-input" />
+                <div class="options-div">
+                    <button type="submit" class="submit-button" (click)="pushNextSlide()">Register</button>
+                </div>
+                <div id="alternative-options">
+                    <button>Register with Google</button>
+                    <button>Register with Github</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="next-slide" #nextSlide></div>
+</div>

@@ -1,0 +1,28 @@
+#main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.list-div{
+    background-color: black;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.list-div:hover{
+    border: 2px black solid;
+    color: var(--on-major);
+    background-color: white;
+    cursor: pointer;
+}
+
+.list-div:hover>.list-element{
+    color: var(--on-major);
+}
+
+.list-div:hover>h2{
+    color: var(--on-major);
+}
