@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { List } from "../../constant-components/list/list";
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-list',
-  imports: [List],
+  imports: [],
   templateUrl: './post-list.html',
   styleUrl: './post-list.css',
 })

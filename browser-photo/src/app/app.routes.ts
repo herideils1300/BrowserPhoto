@@ -8,9 +8,10 @@ import { PackageStatsPage } from './view/personalized/package-stats-page/package
 import { UploadPage } from './view/personalized/upload-page/upload-page';
 import { ImageEditorPage } from './view/personalized/image-editor-page/image-editor-page';
 import { PostList } from './view/personalized/post-list/post-list';
+import { DownloadEditor } from './view/personalized/download-editor/download-editor';
 
 export const routes: Routes = [
-    {path: "home", component: ImageEditorPage, title: "Upload page"},
+    {path: "home", component: DownloadEditor, title: "Upload page"},
     { path: "list", component: PostList, title: "List page"},
     { path: "", redirectTo: "/home", pathMatch: "full"},
 

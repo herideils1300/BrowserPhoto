@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ResetTimer } from '../../../bussines/timer/timer.impl';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-package-stats-page',
