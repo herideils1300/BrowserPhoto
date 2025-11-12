@@ -1,3 +1,9 @@
 form{
        border: 1px var(--minor-color) solid;
 }
+
+#cancel{
+       background-color: var(--dopamine-color);
+       color: white;
+       border: none;
+}

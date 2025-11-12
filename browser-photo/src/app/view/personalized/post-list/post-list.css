@@ -1,0 +1,7 @@
+div{
+       color: var(--on--major);
+}
+
+.top-div{
+       border-bottom: 1px var(--on--major) solid;
+}

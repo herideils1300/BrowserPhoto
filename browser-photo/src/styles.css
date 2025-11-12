@@ -110,7 +110,7 @@ input{
 
 .list-element{
     margin: 10px;
-    color: var(--on-minor);
+    color: var(--on--major);
 }
 
 .stats-div{

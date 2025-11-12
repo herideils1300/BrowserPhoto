@@ -6,8 +6,12 @@ import { RegisterPage } from './view/personalized/register-page/register-page';
 import { PackagePickPage } from './view/personalized/register-page/subSlides/package-pick-page/package-pick-page';
 import { PackageStatsPage } from './view/personalized/package-stats-page/package-stats-page';
 import { UploadPage } from './view/personalized/upload-page/upload-page';
+import { ImageEditorPage } from './view/personalized/image-editor-page/image-editor-page';
+import { PostList } from './view/personalized/post-list/post-list';
 
 export const routes: Routes = [
-    { path: "", component: UploadPage, title: "Nav bar page"},
-    { path: "list", component: NavBar, title: "List page"},
+    {path: "home", component: ImageEditorPage, title: "Upload page"},
+    { path: "list", component: PostList, title: "List page"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
+
 ];
