@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-page',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './upload-page.html',
   styleUrl: './upload-page.css',
 })
