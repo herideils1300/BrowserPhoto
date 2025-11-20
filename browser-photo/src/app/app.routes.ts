@@ -11,7 +11,8 @@ import { PostList } from './view/personalized/post-list/post-list';
 import { DownloadEditor } from './view/personalized/download-editor/download-editor';
 
 export const routes: Routes = [
-    {path: "home", component: DownloadEditor, title: "Upload page"},
+    {path: "home", component: LoginPage, title: "Upload page"},
+    {path: "register", component: RegisterPage, title: "Upload page"},
     { path: "list", component: PostList, title: "List page"},
     { path: "", redirectTo: "/home", pathMatch: "full"},
 

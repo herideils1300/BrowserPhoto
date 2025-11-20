@@ -5,7 +5,7 @@ import { routes } from '../../../app.routes';
 
 @Component({
   selector: 'app-nav-bar',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.css',
 })

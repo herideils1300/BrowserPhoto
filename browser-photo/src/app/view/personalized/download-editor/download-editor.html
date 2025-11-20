@@ -1,8 +1,10 @@
 <div id="main">
-       <div id="image"></div>
+       <div class="image-div"></div>
        <div class="options-div">
               <mat-checkbox>Sepia</mat-checkbox>
               <mat-checkbox>Blur</mat-checkbox>
-              <mat-slider max="1000" min="640">Resize</mat-slider>
+              <mat-slider max="1000" min="640" step="1">
+                     <input matSliderThumb>
+              </mat-slider>
        </div>
 </div>

@@ -1,19 +1,29 @@
 <div id="main">
     <div id="login-div">
-        <form>
+        <form (submit)="submitCheck()" [formGroup]="this.formGroup">
             <h2>Login to PoTo:</h2>
-            <label for="email">Username</label>
-            <input type="email" name="email" id="email-input" />
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email-input" [formControl]="this.formGroup.controls.email" />
+            <div class="error-div"></div>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password-input" />
+            <input type="password" name="password" id="password-input"
+                [formControl]="this.formGroup.controls.password" />
             <div class="options-div">
                 <button type="submit" class="submit-button">Login</button>
             </div>
             <div id="alternative-options">
                 <button>Continue as Guest</button>
             </div>
+            @if(errors.length != 0){
+            <div class="error-div">
+                @for(error of errors; track $index){
+                    {{error}}
+                }
+            </div>
+            }
             <div class="options-div">
-                <a routerLink="register">Dont have an account? Register for free.</a>
+                <a routerLinkName="/register">Dont have an account? Register for free.</a>
             </div>
         </form>
 

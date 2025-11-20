@@ -4,7 +4,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, ],
   selector: 'app-download-editor',
   imports: [/*MatCheckbox,*/ MatCheckboxModule, MatSliderModule],
   templateUrl: './download-editor.html',

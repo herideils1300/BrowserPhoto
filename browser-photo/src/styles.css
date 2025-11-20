@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
 
@@ -15,11 +15,16 @@ body{
     color: var(--on-major);
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 2px;
 }
 
-form{
+form {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -31,13 +36,13 @@ form{
     padding: 100px;
 }
 
-label{
+label {
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-button{
+button {
     margin-top: 7px;
     margin-right: 7px;
     border-radius: 10px;
@@ -47,23 +52,28 @@ button{
     background-color: var(--major-color);
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
-input{
+input {
     height: 30px;
     width: auto;
     border-radius: 10px;
     border: 0.5px var(--on-major) solid;
 }
 
-.submit-button{
+mat-form-field {
+    margin: 0px;
+    padding: 0px;
+}
+
+.submit-button {
     background-color: var(--minor-color);
     color: var(--on-minor);
 }
 
-.list-element{
+.list-element {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +83,7 @@ input{
     color: var(--on-major);
 }
 
-.nav-bar-element{
+.nav-bar-element {
     width: 100px;
     height: inherit;
     display: flex;
@@ -85,18 +95,18 @@ input{
     transition-duration: 0.5s;
 }
 
-.nav-bar-element:hover{
+.nav-bar-element:hover {
     background-color: var(--major-color);
     color: var(--on-major);
     cursor: pointer;
 }
 
-.options-div{
+.options-div {
     display: flex;
     flex-direction: row-reverse;
 }
 
-.list-div{
+.list-div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,12 +118,12 @@ input{
     color: var(--on-minor);
 }
 
-.list-element{
+.list-element {
     margin: 10px;
     color: var(--on--major);
 }
 
-.stats-div{
+.stats-div {
     width: 100%;
     color: var(--on-minor);
     background-color: var(--minor-color);
@@ -123,5 +133,27 @@ input{
 
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.error-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dd1111;
+    font-weight: 600;
+}
+
+.image-div {
+    width: inherit;
+    height: inherit;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
