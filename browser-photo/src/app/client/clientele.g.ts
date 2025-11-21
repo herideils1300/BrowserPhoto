@@ -9,20 +9,20 @@
 
 import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 'rxjs/operators';
 import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
-import { Injectable, Inject, Optional, InjectionToken, inject } from '@angular/core';
+import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase, HttpContext } from '@angular/common/http';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 @Injectable({
-    providedIn: 'any',
+    providedIn: 'root'
 })
 export class Client {
-    private http: HttpClient = inject(HttpClient);
+    private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
 
-    constructor(http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
         this.baseUrl = baseUrl ?? "";
     }
@@ -865,8 +865,8 @@ export class Client {
      * @param body (optional) 
      * @return OK
      */
-    exists(body: string | undefined, httpContext?: HttpContext): Observable<UserDTO> {
-        let url_ = this.baseUrl + "/api/UserDTO/exists";
+    authenticate(body: User | undefined, httpContext?: HttpContext): Observable<UserDTO> {
+        let url_ = this.baseUrl + "/api/UserDTO/authenticate";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(body);
@@ -883,11 +883,11 @@ export class Client {
         };
 
         return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processExists(response_);
+            return this.processAuthenticate(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processExists(response_ as any);
+                    return this.processAuthenticate(response_ as any);
                 } catch (e) {
                     return _observableThrow(e) as any as Observable<UserDTO>;
                 }
@@ -896,7 +896,7 @@ export class Client {
         }));
     }
 
-    protected processExists(response: HttpResponseBase): Observable<UserDTO> {
+    protected processAuthenticate(response: HttpResponseBase): Observable<UserDTO> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -908,64 +908,6 @@ export class Client {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result200 = UserDTO.fromJS(resultData200);
-            return _observableOf(result200);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf(null as any);
-    }
-
-    /**
-     * @param body (optional) 
-     * @return OK
-     */
-    pwdCheck(body: string | undefined, httpContext?: HttpContext): Observable<boolean> {
-        let url_ = this.baseUrl + "/api/UserDTO/pwdCheck";
-        url_ = url_.replace(/[?&]$/, "");
-
-        const content_ = JSON.stringify(body);
-
-        let options_ : any = {
-            body: content_,
-            observe: "response",
-            responseType: "blob",
-            context: httpContext,
-            headers: new HttpHeaders({
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processPwdCheck(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processPwdCheck(response_ as any);
-                } catch (e) {
-                    return _observableThrow(e) as any as Observable<boolean>;
-                }
-            } else
-                return _observableThrow(response_) as any as Observable<boolean>;
-        }));
-    }
-
-    protected processPwdCheck(response: HttpResponseBase): Observable<boolean> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (response as any).error instanceof Blob ? (response as any).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-                result200 = resultData200 !== undefined ? resultData200 : null as any;
-    
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -1075,6 +1017,46 @@ export interface IPostDTO {
     description?: string | undefined;
     imagePath?: string | undefined;
     user?: UserDTO;
+}
+
+export class User implements IUser {
+    email?: string | undefined;
+    password?: string | undefined;
+
+    constructor(data?: IUser) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (this as any)[property] = (data as any)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.email = _data["email"];
+            this.password = _data["password"];
+        }
+    }
+
+    static fromJS(data: any): User {
+        data = typeof data === 'object' ? data : {};
+        let result = new User();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["email"] = this.email;
+        data["password"] = this.password;
+        return data;
+    }
+}
+
+export interface IUser {
+    email?: string | undefined;
+    password?: string | undefined;
 }
 
 export class UserDTO implements IUserDTO {

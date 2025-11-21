@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Field } from '@angular/forms/signals';
 
 
 
@@ -10,12 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [],
   providers: [provideHttpClient()],
   exports: [
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    Field
   ]
 })
 export class LoginModule { }

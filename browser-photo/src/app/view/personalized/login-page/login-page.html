@@ -1,14 +1,13 @@
 <div id="main">
     <div id="login-div">
-        <form (submit)="submitCheck()" [formGroup]="this.formGroup">
+        <form (ngSubmit)="submitCheck()">
             <h2>Login to PoTo:</h2>
 
             <label for="email">Email</label>
-            <input type="email" name="email" id="email-input" [formControl]="this.formGroup.controls.email" />
+            <input type="email" id="email-input" [field]="form.email!"/>
             <div class="error-div"></div>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password-input"
-                [formControl]="this.formGroup.controls.password" />
+            <input type="password" id="password-input" [field]="form.password!"/>
             <div class="options-div">
                 <button type="submit" class="submit-button">Login</button>
             </div>
@@ -23,7 +22,7 @@
             </div>
             }
             <div class="options-div">
-                <a routerLinkName="/register">Dont have an account? Register for free.</a>
+                <a routerLink="/register">Dont have an account? Register for free.</a>
             </div>
         </form>
 
