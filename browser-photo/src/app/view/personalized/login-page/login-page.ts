@@ -2,14 +2,14 @@ import { Component, inject, model, signal } from '@angular/core';
 import { Client, User, UserDTO } from '../../../client/clientele.g';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { LoginModule } from './login/login-module';
+import { LoginModule } from '../modules/login/login-module';
 import { findAncestor } from 'typescript';
 import { email, Field, form, required, submit } from '@angular/forms/signals';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
-  imports: [LoginModule, Field, RouterLink],
+  imports: [LoginModule],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
 })

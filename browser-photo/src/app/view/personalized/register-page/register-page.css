@@ -10,6 +10,11 @@ a:hover{
     text-decoration: underline;
 }
 
+.submit-button{
+    width: 100%;
+    margin-top: 10px;
+}
+
 #alternative-options{
     display: flex;
     flex-direction: column;

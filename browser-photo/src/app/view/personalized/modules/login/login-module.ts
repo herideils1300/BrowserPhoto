@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Field } from '@angular/forms/signals';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,6 +12,8 @@ import { Field } from '@angular/forms/signals';
   declarations: [],
   providers: [provideHttpClient()],
   exports: [
+    Field,
+    RouterModule
   ],
   imports: [
     CommonModule,

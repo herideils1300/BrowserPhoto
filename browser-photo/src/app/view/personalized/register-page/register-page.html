@@ -4,13 +4,13 @@
             <form>
                 <h2>Register</h2>
                 <label for="email">Username</label>
-                <input type="email" name="email" id="email-input" />
+                <input type="email" id="email-input" [field]="registerForm.email" />
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password-input" />
+                <input type="password" id="password-input" [field]="registerForm.password"/>
                 <label for="repeat-password">Repeat Password</label>
-                <input type="password" name="repeat-password" id="repeat-password-input" />
+                <input type="password" id="repeat-password-input" [field]="registerForm.repeatedPassword"/>
                 <div class="options-div">
-                    <button type="submit" class="submit-button" (click)="pushNextSlide()">Register</button>
+                    <button class="submit-button" (click)="pushNextSlide(); submitForm();" type="button">Register</button>
                 </div>
                 <div id="alternative-options">
                     <button>Register with Google</button>
